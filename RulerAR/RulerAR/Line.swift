@@ -98,6 +98,28 @@ class Line {
         sceneView.scene.rootNode.addChildNode(textNode)
     }
     
+    func update(to vector: SCNVector3) {
+        lineNode?.removeFromParentNode()
+        lineNode = startVector.line(to: vector, color: UIColor.white)
+        sceneView.scene.rootNode.addChildNode(lineNode!)
+        
+        text.string = distance(to: vector)
+        if endNode.parent == nil {
+            sceneView.scene.rootNode.addChildNode(endNode)
+        }
+        
+    }
+    
+    func distance(to vector: SCNVector3) -> String {
+        return String(format: "%.2f%@", startVector.distance(from: vector) * unit.factor, unit.unit)
+    }
+    
+    func removeFromParentNode() {
+        startNode.removeFromParentNode()
+        endNode.removeFromParentNode()
+        lineNode?.removeFromParentNode()
+        textNode.removeFromParentNode()
+    }
     
     
     
