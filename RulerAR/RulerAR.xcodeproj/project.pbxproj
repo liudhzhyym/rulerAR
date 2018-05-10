@@ -56,12 +56,28 @@
 			children = (
 				BFC144F120A4A3C200E3734D /* AppDelegate.swift */,
 				BFC144F320A4A3C200E3734D /* ViewController.swift */,
-				BFC144F520A4A3C200E3734D /* Main.storyboard */,
-				BFC144F820A4A3C400E3734D /* Assets.xcassets */,
-				BFC144FA20A4A3C400E3734D /* LaunchScreen.storyboard */,
-				BFC144FD20A4A3C400E3734D /* Info.plist */,
+				BFC1450420A4AE1D00E3734D /* Storyboard */,
+				BFC1450320A4AE1200E3734D /* Resources */,
 			);
 			path = RulerAR;
+			sourceTree = "<group>";
+		};
+		BFC1450320A4AE1200E3734D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BFC144F820A4A3C400E3734D /* Assets.xcassets */,
+				BFC144FD20A4A3C400E3734D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BFC1450420A4AE1D00E3734D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BFC144F520A4A3C200E3734D /* Main.storyboard */,
+				BFC144FA20A4A3C400E3734D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
