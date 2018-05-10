@@ -14,6 +14,7 @@
 		BFC144FC20A4A3C400E3734D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFC144FA20A4A3C400E3734D /* LaunchScreen.storyboard */; };
 		BFC1450620A4B52C00E3734D /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC1450520A4B52C00E3734D /* Line.swift */; };
 		BFC1450820A4C1AA00E3734D /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC1450720A4C1AA00E3734D /* SCNVector3.swift */; };
+		BFC1450A20A4C60E00E3734D /* ARSCNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC1450920A4C60E00E3734D /* ARSCNView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BFC144FD20A4A3C400E3734D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFC1450520A4B52C00E3734D /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		BFC1450720A4C1AA00E3734D /* SCNVector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
+		BFC1450920A4C60E00E3734D /* ARSCNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				BFC144F120A4A3C200E3734D /* AppDelegate.swift */,
 				BFC144F320A4A3C200E3734D /* ViewController.swift */,
 				BFC1450520A4B52C00E3734D /* Line.swift */,
+				BFC1450920A4C60E00E3734D /* ARSCNView.swift */,
 				BFC1450720A4C1AA00E3734D /* SCNVector3.swift */,
 				BFC1450420A4AE1D00E3734D /* Storyboard */,
 				BFC1450320A4AE1200E3734D /* Resources */,
@@ -159,6 +162,7 @@
 			files = (
 				BFC1450620A4B52C00E3734D /* Line.swift in Sources */,
 				BFC1450820A4C1AA00E3734D /* SCNVector3.swift in Sources */,
+				BFC1450A20A4C60E00E3734D /* ARSCNView.swift in Sources */,
 				BFC144F420A4A3C200E3734D /* ViewController.swift in Sources */,
 				BFC144F220A4A3C200E3734D /* AppDelegate.swift in Sources */,
 			);
