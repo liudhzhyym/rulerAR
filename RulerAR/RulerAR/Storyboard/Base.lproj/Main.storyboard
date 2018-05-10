@@ -40,9 +40,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdT-J8-uPK">
                                 <rect key="frame" x="275" y="567" width="100" height="100"/>
                                 <state key="normal" backgroundImage="measurement2"/>
+                                <connections>
+                                    <action selector="meterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ALa-aj-0gR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qed-oG-PcB">
                                 <rect key="frame" x="7" y="27" width="35" height="50"/>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YeV-2Q-FXz"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trashCan" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-wz-rzT">
                                 <rect key="frame" x="7" y="27" width="35" height="50"/>
@@ -71,6 +77,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="clearButton" destination="qed-oG-PcB" id="LWj-ka-WRM"/>
+                        <outlet property="loadingView" destination="keD-ey-0a4" id="irT-s4-4aR"/>
+                        <outlet property="messageLabel" destination="AA0-53-ucc" id="ukE-hA-1Nw"/>
+                        <outlet property="meterButton" destination="qdT-J8-uPK" id="PnH-c3-VIk"/>
+                        <outlet property="sceneView" destination="dQx-3o-zWI" id="P7e-xv-nOt"/>
+                        <outlet property="targetImage" destination="Dqv-7g-vv2" id="J3o-V2-iSg"/>
+                        <outlet property="trashImage" destination="2Od-wz-rzT" id="BLt-cE-eZj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
