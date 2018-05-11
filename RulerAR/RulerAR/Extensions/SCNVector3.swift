@@ -19,7 +19,7 @@ extension SCNVector3 {
         let distanceY = self.y - vector.y
         let distanceZ = self.z - vector.z
         
-        return sqrt((distanceX * distanceX) + (distanceY * distanceY) + (distanceZ * distanceZ))
+        return sqrtf((distanceX * distanceX) + (distanceY * distanceY) + (distanceZ * distanceZ))
     }
     
     func line(to vector: SCNVector3, color: UIColor = .white) -> SCNNode {

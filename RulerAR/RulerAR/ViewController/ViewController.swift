@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var targetImage: UIImageView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    
+    @IBOutlet weak var rulerImage: UIImageView!
     @IBOutlet weak var meterButton: UIButton!
     
     var session = ARSession()
@@ -62,6 +64,10 @@ class ViewController: UIViewController {
         setupScene()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared
@@ -74,7 +80,7 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // reset values
+        resetValues()
         isMeasuring = true
         targetImage.image = UIImage(named: "greenTarget")
     }
@@ -120,6 +126,7 @@ extension ViewController {
         messageLabel.text = "Detecting the world..."
         clearButton.isHidden = true
         trashImage.isHidden = true
+        rulerImage.isHidden = true
         session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
         resetValues()
     }
@@ -134,6 +141,8 @@ extension ViewController {
         guard let worldPosition = sceneView.realWorldVector(screenPosition: view.center) else { return }
         targetImage.isHidden = false
         meterButton.isHidden = false
+        rulerImage.isHidden = false
+        loadingView.isHidden = true
         if lines.isEmpty {
             messageLabel.text = "Hold screen & move your iPhone..."
         }

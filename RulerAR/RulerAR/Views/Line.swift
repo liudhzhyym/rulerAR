@@ -104,6 +104,9 @@ class Line {
         sceneView.scene.rootNode.addChildNode(lineNode!)
         
         text.string = distance(to: vector)
+        textNode.position = SCNVector3((startVector.x+vector.x)/2.0, (startVector.y+vector.y)/2.0, (startVector.z+vector.z)/2.0)
+        
+        endNode.position = vector
         if endNode.parent == nil {
             sceneView.scene.rootNode.addChildNode(endNode)
         }

@@ -30,11 +30,12 @@
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="keD-ey-0a4">
                                 <rect key="frame" x="15" y="632" width="20" height="20"/>
+                                <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA0-53-ucc">
                                 <rect key="frame" x="43" y="635" width="43" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdT-J8-uPK">
@@ -53,6 +54,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trashCan" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-wz-rzT">
                                 <rect key="frame" x="7" y="27" width="35" height="50"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rulerWhite" translatesAutoresizingMaskIntoConstraints="NO" id="LZd-bS-9Jy">
+                                <rect key="frame" x="5" y="622" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AYm-Ye-6vk"/>
+                                    <constraint firstAttribute="width" constant="40" id="fUz-8B-YKB"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -65,7 +73,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AA0-53-ucc" secondAttribute="bottom" constant="15" id="HwF-WK-8Jc"/>
                             <constraint firstItem="keD-ey-0a4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="IxZ-zt-uoc"/>
                             <constraint firstItem="qed-oG-PcB" firstAttribute="top" secondItem="2Od-wz-rzT" secondAttribute="top" id="NTD-JW-wIe"/>
+                            <constraint firstItem="LZd-bS-9Jy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="SbP-1V-YKh"/>
                             <constraint firstItem="AA0-53-ucc" firstAttribute="leading" secondItem="keD-ey-0a4" secondAttribute="trailing" constant="8" id="UOJ-LQ-Lja"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LZd-bS-9Jy" secondAttribute="bottom" constant="5" id="bWk-CM-rMu"/>
                             <constraint firstItem="qdT-J8-uPK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bpQ-Op-RDb"/>
                             <constraint firstItem="qed-oG-PcB" firstAttribute="leading" secondItem="2Od-wz-rzT" secondAttribute="leading" id="bzt-aO-Kzo"/>
                             <constraint firstItem="qed-oG-PcB" firstAttribute="trailing" secondItem="2Od-wz-rzT" secondAttribute="trailing" id="ft0-h3-Ixk"/>
@@ -82,6 +92,7 @@
                         <outlet property="loadingView" destination="keD-ey-0a4" id="irT-s4-4aR"/>
                         <outlet property="messageLabel" destination="AA0-53-ucc" id="ukE-hA-1Nw"/>
                         <outlet property="meterButton" destination="qdT-J8-uPK" id="PnH-c3-VIk"/>
+                        <outlet property="rulerImage" destination="LZd-bS-9Jy" id="RBM-T4-1V1"/>
                         <outlet property="sceneView" destination="dQx-3o-zWI" id="P7e-xv-nOt"/>
                         <outlet property="targetImage" destination="Dqv-7g-vv2" id="J3o-V2-iSg"/>
                         <outlet property="trashImage" destination="2Od-wz-rzT" id="BLt-cE-eZj"/>
@@ -95,6 +106,7 @@
     <resources>
         <image name="measurement2" width="100" height="100"/>
         <image name="redTarget" width="512" height="512"/>
+        <image name="rulerWhite" width="50" height="50"/>
         <image name="trashCan" width="35" height="50"/>
     </resources>
 </document>
