@@ -15,13 +15,14 @@ class ViewController: UIViewController {
     // Properties
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var trashImage: UIImageView!
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var targetImage: UIImageView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
-    
+    @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var rulerImage: UIImageView!
     @IBOutlet weak var meterButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var toolbarView: UIView!
     
     var session = ARSession()
     var sessionConfig = ARWorldTrackingConfiguration()
@@ -34,9 +35,23 @@ class ViewController: UIViewController {
     var unit: DistanceUnit = .inch
     
     // IBActions
+    @IBAction func cameraButtonTapped(_ sender: UIButton) {
+        let image = sceneView.snapshot()
+//        let imageData = UIImagePNGRepresentation(image)
+//        let compressedImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        let alert = UIAlertController(title: "Saved!", message: "Your image has been saved", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func clearButtonTapped(_ sender: UIButton) {
-        clearButton.isHidden = true
-        trashImage.isHidden = true
+        
+        unitLabel.isHidden = true
+        unitLabel.text = ""
         for line in lines {
             line.removeFromParentNode()
         }
@@ -92,7 +107,7 @@ class ViewController: UIViewController {
             lines.append(line)
             currentLine = nil
             clearButton.isHidden = false
-            trashImage.isHidden = false
+            cameraButton.isHidden = false
         }
     }
 }
@@ -119,14 +134,16 @@ extension ViewController: ARSCNViewDelegate {
 
 extension ViewController {
     func setupScene() {
+        view.addSubview(toolbarView)
         targetImage.isHidden = true
+//        cameraButton.isHidden = true
         sceneView.delegate = self
         sceneView.session = session
         loadingView.startAnimating()
         messageLabel.text = "Detecting the world..."
-        clearButton.isHidden = true
-        trashImage.isHidden = true
+//        clearButton.isHidden = true
         rulerImage.isHidden = true
+        unitLabel.isHidden = true
         session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
         resetValues()
     }
@@ -143,11 +160,13 @@ extension ViewController {
         meterButton.isHidden = false
         rulerImage.isHidden = false
         loadingView.isHidden = true
+        
         if lines.isEmpty {
             messageLabel.text = "Hold screen & move your iPhone..."
         }
         loadingView.stopAnimating()
         if isMeasuring {
+            unitLabel.isHidden = false
             if startValue == vectorZero {
                 startValue = worldPosition
                 currentLine = Line(sceneView: sceneView, startVector: startValue, unit: unit)
@@ -155,6 +174,7 @@ extension ViewController {
             endValue = worldPosition
             currentLine?.update(to: endValue)
             messageLabel.text = currentLine?.distance(to: endValue) ?? "Calculating..."
+            unitLabel.text = messageLabel.text
         }
     }
 }
