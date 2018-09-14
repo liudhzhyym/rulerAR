@@ -13,6 +13,7 @@ import ARKit
 enum DistanceUnit {
     case centimeter
     case inch
+    case feet
     case meter
     
     var factor: Float {
@@ -21,6 +22,8 @@ enum DistanceUnit {
             return 100.0
         case .inch:
             return 39.3700787
+        case .feet:
+            return 3.280839895
         case .meter:
             return 1.0
         
@@ -33,6 +36,8 @@ enum DistanceUnit {
             return "cm"
         case .inch:
             return "in"
+        case .feet:
+            return "ft"
         case .meter:
             return "m"
         }
@@ -44,6 +49,8 @@ enum DistanceUnit {
             return "Centimeter"
         case .inch:
             return "Inch"
+        case .feet:
+            return "Feet"
         case .meter:
             return "Meter"
         }
@@ -80,7 +87,7 @@ class Line {
         endNode.scale = SCNVector3(1/500.0, 1/500.0, 1/500.0)
         
         text = SCNText(string: "", extrusionDepth: 0.1)
-        text.font = UIFont.systemFont(ofSize: 5)
+        text.font = UIFont.systemFont(ofSize: 10)
         text.firstMaterial?.diffuse.contents = UIColor.white
         text.alignmentMode = kCAAlignmentCenter
         text.truncationMode = kCATruncationMiddle
@@ -122,11 +129,7 @@ class Line {
         endNode.removeFromParentNode()
         lineNode?.removeFromParentNode()
         textNode.removeFromParentNode()
-    }
-    
-    
-    
-    
+    } 
 }
 
 

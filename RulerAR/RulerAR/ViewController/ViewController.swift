@@ -37,9 +37,9 @@ class ViewController: UIViewController {
     // IBActions
     @IBAction func cameraButtonTapped(_ sender: UIButton) {
         let image = sceneView.snapshot()
-//        let imageData = UIImagePNGRepresentation(image)
-//        let compressedImage = UIImage(data: imageData!)
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+//        captureScreen()
         
         let alert = UIAlertController(title: "Saved!", message: "Your image has been saved", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -47,10 +47,21 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+//    func captureScreen() -> UIImage {
+//        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, 0);
+//        self.sceneView.drawHierarchy(in: sceneView.bounds, afterScreenUpdates: true)
+//
+//        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
+//        return image
+//    }
+    
     
     @IBAction func clearButtonTapped(_ sender: UIButton) {
         
         unitLabel.isHidden = true
+        cameraButton.isHidden = true
+        clearButton.isHidden = true
         unitLabel.text = ""
         for line in lines {
             line.removeFromParentNode()
@@ -66,13 +77,15 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: DistanceUnit.inch.title, style: .default, handler: { [weak self] _ in
             self?.unit = .inch
         }))
+        alert.addAction(UIAlertAction(title: DistanceUnit.feet.title, style: .default, handler: { [weak self] _ in
+            self?.unit = .feet
+        }))
         alert.addAction(UIAlertAction(title: DistanceUnit.meter.title, style: .default, handler: { [weak self] _ in
             self?.unit = .meter
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,8 +98,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared
-        .isIdleTimerDisabled = true
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -128,20 +140,22 @@ extension ViewController: ARSCNViewDelegate {
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
-        messageLabel.text = "Interruption ended"
+//        messageLabel.text = "Interruption ended"
+        if lines.isEmpty {
+             messageLabel.text = "Hold screen & move your iPhone..."
+        }
     }
 }
 
 extension ViewController {
     func setupScene() {
-        view.addSubview(toolbarView)
         targetImage.isHidden = true
-//        cameraButton.isHidden = true
+        cameraButton.isHidden = true
         sceneView.delegate = self
         sceneView.session = session
         loadingView.startAnimating()
         messageLabel.text = "Detecting the world..."
-//        clearButton.isHidden = true
+        clearButton.isHidden = true
         rulerImage.isHidden = true
         unitLabel.isHidden = true
         session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])

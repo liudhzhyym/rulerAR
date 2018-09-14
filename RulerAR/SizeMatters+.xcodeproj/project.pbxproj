@@ -140,7 +140,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BFC144E920A4A3C200E3734D /* Build configuration list for PBXProject "RulerAR" */;
+			buildConfigurationList = BFC144E920A4A3C200E3734D /* Build configuration list for PBXProject "SizeMatters+" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -359,7 +359,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BFC144E920A4A3C200E3734D /* Build configuration list for PBXProject "RulerAR" */ = {
+		BFC144E920A4A3C200E3734D /* Build configuration list for PBXProject "SizeMatters+" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BFC144FE20A4A3C400E3734D /* Debug */,
