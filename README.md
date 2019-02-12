@@ -7,5 +7,5 @@ Clicking on the round button will take a screenshot of the measurment and save i
 
 ![sizematters](https://user-images.githubusercontent.com/38364867/52670017-d26fd680-2ed4-11e9-85fe-8faf811b4208.gif)
 
-
+Feel free to download the app and play around with it. https://itunes.apple.com/us/app/sizematters/id1398483145
 
